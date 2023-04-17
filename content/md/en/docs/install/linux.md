@@ -167,6 +167,14 @@ To compile the Substrate node template:
    ```
 
    Because of the number of packages required, compiling the node can take several minutes.
+   
+   If you get an error using the latest nightly then try downgrading to an older Rust nightly version using [overrides](https://rust-lang.github.io/rustup/overrides.html) by running the following before compiling the node template. Replace `YYYY-MM-DD` with a previous nightly distribution date. Recent Rust nightly distribution dates are published [here](https://rust-lang.github.io/rustup-components-history/). Prior Rust nightly distribution dates may be released every day unless the build fails.
+   
+   ```bash
+   rustup override set nightly-YYYY-MM-DD
+   rustup target add wasm32-unknown-unknown
+   ```
+   Note: To later revert the override back to default nightly run `rustup override unset`.
 
 After the build completes successfully, your local computer is ready for Substrate development activity.
 
